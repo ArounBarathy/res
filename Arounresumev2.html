@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroun Barathy - Product Manager</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #1e40af;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+
+
+        .name {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon {
+            font-weight: bold;
+            margin-right: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        .main-content {
+            padding: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #1e40af, #2563eb);
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #1e40af;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #1e40af;
+            font-size: 0.8em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #1e40af, #2563eb);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
+        }
+
+        .education-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .degree {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+
+        .cert-item {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #1e40af;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+            transform: translateX(5px);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+        }
+
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tool-badge {
+            background: #1e40af;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .personal-details {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .personal-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f2f6;
+            line-height: 1.5;
+        }
+
+        .personal-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-icon {
+            margin-right: 12px;
+            font-size: 1.2em;
+            width: 25px;
+            text-align: center;
+        }
+
+        .awards-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .award-item {
+            background: linear-gradient(45deg, #1e40af, #2563eb);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+
+        .work-samples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sample-link {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .sample-link:hover {
+            border-color: #1e40af;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.2);
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #1e40af;
+            font-style: italic;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1e40af;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+        }
+
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume">
+           
+            <div class="header">
+                <div class="name">Aroun Barathy</div>
+                <div class="title">Senior Product Manager & Business Analyst</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">•</span> 8610036858
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">•</span> arounbarathy@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">•</span> <a href="https://www.linkedin.com/in/aroun-barathy-a5823681/" style="color: white; text-decoration: none;">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="sidebar">
+                    <div class="section">
+                        <div class="section-title">Key Skills</div>
+                        <div class="skills-grid">
+                            <div class="skill-tag">Agile & SAFe 6.0</div>
+                            <div class="skill-tag">Strategy Analysis</div>
+                            <div class="skill-tag">Stakeholder Management</div>
+                            <div class="skill-tag">Elicitation</div>
+                            <div class="skill-tag">Modelling Requirements</div>
+                            <div class="skill-tag">Requirement Management</div>
+                            <div class="skill-tag">Evaluation</div>
+                            <div class="skill-tag">Market Analysis</div>
+                            <div class="skill-tag">API Integration</div>
+                            <div class="skill-tag">BRD, FRD & SOW</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Tools & Tech</div>
+                        <div class="tools-container">
+                            <div class="tool-badge">JIRA</div>
+                            <div class="tool-badge">Figma</div>
+                            <div class="tool-badge">Postman</div>
+                            <div class="tool-badge">Azure DevOps</div>
+                            <div class="tool-badge">Confluence</div>
+                            <div class="tool-badge">MS Visio</div>
+                            <div class="tool-badge">Balsamiq</div>
+                            <div class="tool-badge">Draw.io</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Education</div>
+                        <div class="education-item">
+                            <div class="degree">MBA</div>
+                            <div class="school">Pondicherry University</div>
+                            <div class="duration">2016-2018 | CGPA: 8.02</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="degree">B.Tech Mechanical Engineering</div>
+                            <div class="school">Pondicherry Engineering College</div>
+                            <div class="duration">2012-2016 | CGPA: 7.64</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Awards & Recognition</div>
+                        <div class="awards-grid">
+                            <div class="award-item">Extra Mile Award - Agilysys (2022)</div>
+                            <div class="award-item">Hackathon Winner - Infiniti (2019)</div>
+                            <div class="award-item">SRAMA Award – Srinivasa Ramanaujam Academy (2012)</div>
+                            <div class="award-item">11th National Cyber Olympiad – State Topper (2010)</div>
+                            <div class="award-item">International Mathematics Olympiad – Institutional Topper (2008)</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Personal Details</div>
+                        <div class="personal-details">
+                            <div class="personal-item">
+                                <span class="detail-icon">🗣️</span>
+                                <strong>Languages:</strong> English & Tamil
+                            </div>
+                            <div class="personal-item">
+                                <span class="detail-icon">📅</span>
+                                <strong>Date of Birth:</strong> 10.09.1994
+                            </div>
+                            <div class="personal-item">
+                                <span class="detail-icon">📍</span>
+                                <strong>Native:</strong> Pondicherry, India
+                            </div>
+                            <div class="personal-item">
+                                <span class="detail-icon">🎯</span>
+                                <strong>Activities & Interests:</strong> Non-fiction Books & Violin
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="summary-box">
+                        <h3 style="margin-bottom: 15px;">Professional Philosophy</h3>
+                        Product Management is the heartbeat of any organization—a force that bridges departments, drives innovation, and ensures the best possible outcomes for both customers and the business. Over seven years, I've refined essential skills in product strategy, stakeholder management, and Agile methodologies while tackling challenges at every level.
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Professional Experience</div>
+                        
+                        <div class="experience-item" onclick="toggleDetails(this)">
+                            <div class="job-title">Senior Business Analyst</div>
+                            <div class="company">Dun & Bradstreet</div>
+                            <div class="duration">Apr 2023 – Present</div>
+                            <ul class="achievements">
+                                <li>Collaborating with global financial institutions, including the World Bank, to establish credit standard practices</li>
+                                <li>Implementing various credit models by incorporating multiple data source points</li>
+                                <li>Training central bank bureaus on implemented solutions</li>
+                                <li>Developed data conflict management workflow for countries with multiple identifiers</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item" onclick="toggleDetails(this)">
+                            <div class="job-title">Business Analyst</div>
+                            <div class="company">Agilysys</div>
+                            <div class="duration">Sep 2020 – Apr 2023</div>
+                            <ul class="achievements">
+                                <li>Delivered Kiosk and POS terminal solutions enhancing operational efficiency</li>
+                                <li>Implemented regulatory fiscal compliances across US, Europe, China, and Taiwan</li>
+                                <li>Integrated multiple payment methods including cards, loyalty, and gift systems</li>
+                                <li>Provided customer support through bug validation and product enhancement identification</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item" onclick="toggleDetails(this)">
+                            <div class="job-title">Associate Business Analyst</div>
+                            <div class="company">Infiniti Software Solutions</div>
+                            <div class="duration">June 2018 – Feb 2020</div>
+                            <ul class="achievements">
+                                <li>Secured major contract through end-to-end RFP process management</li>
+                                <li>Conducted market research and competitive analysis for data-driven decisions</li>
+                                <li>Created comprehensive BRDs, FRDs, and user stories</li>
+                                <li>Designed empathetic customer experiences and value proposition canvases</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Certifications</div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                            <div class="cert-item">Certified SAFe 6 Agile Product Manager (2025)</div>
+                            <div class="cert-item">Certified SAFe 6 Product Owner (2025)</div>
+                            <div class="cert-item">Certified Scrum Product Owner (CSPO) (2024)</div>
+                            <div class="cert-item">CBAP Training (2025)</div>
+                            <div class="cert-item">PMP Certification Training (2022)</div>
+                            <div class="cert-item">RPA Business Analyst - UiPath (2019)</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Work Samples & Portfolio</div>
+                        <div class="work-samples">
+                            <a href="https://bexplainer.wixsite.com/explainer" class="sample-link" target="_blank">
+                                <strong>Product Explainer</strong><br>
+                                Interactive Demo Site
+                            </a>
+                            <a href="https://www.slideshare.net/slideshow/best-buy-197011476/197011476" class="sample-link" target="_blank">
+                                <strong>Best Buy Analysis</strong><br>
+                                Strategic Case Study
+                            </a>
+                            <a href="https://www.slideshare.net/slideshow/social-strategy-at-nike-197010008/197010008" class="sample-link" target="_blank">
+                                <strong>Nike Social Strategy</strong><br>
+                                Marketing Analysis
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=oRyd0g8i5Y" class="sample-link" target="_blank">
+                                <strong>Video Presentation</strong><br>
+                                Product Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Testimonials</div>
+                        <div class="testimonial">
+                            "Aroun is an insightful person and a ready and quick learner. Always very amiable and easy to approach, he could be a veritable asset to any organization. He is capable of achieving more than what he has currently attained."
+                            <div class="testimonial-author">- Veerabathran Duraikkannan, Founder – Akademy</div>
+                        </div>
+                        <div class="testimonial">
+                            "I have had the pleasure of collaborating with Aroun... He has consistently impressed me with his exceptional analytical skills and result-driven approach. Aroun is not only a great team player but also someone who consistently goes above and beyond."
+                            <div class="testimonial-author">- Mohiddin Shaik, Project Manager at Deloitte</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(element) {
+            const achievements = element.querySelector('.achievements');
+            if (achievements.style.display === 'none') {
+                achievements.style.display = 'block';
+                element.style.background = 'linear-gradient(45deg, #f8f9fa, #fff)';
+            } else {
+                achievements.style.display = 'none';
+                element.style.background = 'white';
+            }
+        }
+
+        // Add smooth scrolling animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+                section.style.animation = 'slideUp 0.6s ease-out forwards';
+            });
+        });
+
+        // Add interactive skill highlighting
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.background = 'linear-gradient(45deg, #e74c3c, #f39c12)';
+                setTimeout(() => {
+                    this.style.background = 'linear-gradient(45deg, #3498db, #9b59b6)';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</body>
+</html>
